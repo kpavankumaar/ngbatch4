@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>execution context</title>
+</head>
+<body>
+	<h3>heading</h3>
+	<script type="text/javascript">
+		console.log(b);
+		var a = 10;
+		//console.log(a);
+		var b = a;
+		//console.log(b);
+		b = 40 ;
+		//console.log(a);
+		// var table = {
+		// 	shape:'rectangular'
+		// }
+		// var metalTable = table;
+		// metalTable.shape = 'circular';
+		// console.log(table.shape);
+		function c(){
+
+			console.log(b); // 10
+		}
+		function d(){
+			c();
+			console.log(b); // undefined
+			var b = 25;
+			console.log(b); // 25
+		}
+		function e(){
+			console.log(b) //--> 40
+			b = 10;
+			d();
+			console.log(b); // --> 10
+		}
+		e();
+	</script>
+</body>
+</html>
