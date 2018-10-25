@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrays </title>
+</head>
+<body>
+	<script type="text/javascript">
+		// map reduce and filter 
+		var arr5 = [
+					{name:'pavan',lname:'kumar',age:16},
+					{name:'kiran',lname:'kumar',age:20},
+					{name:'lakshmi',lname:'kumar',age:35}
+				];
+		var arr6 = [];
+		// for(var i = 0; i < arr5.length; i = i + 1){
+		// 	arr6.push(arr5[i].name);
+		// 	if(obj.age > 18){
+		// 		arr6.push(arr5[i]);
+		// 	}
+			
+		// }
+		var mappedArr = arr5.map(function(obj){
+			if(obj.age > 18){
+				return obj.name	
+			}
+			return 'not eligible';
+			
+		});
+		var voterEligibility = arr5.filter(function(obj){
+			if(obj.age > 18){
+				// console.log(obj.name)
+				return 10; 
+			}
+
+		})
+		var reducedObj = {
+			count:0,
+			totalVal:0,
+			avg:0
+		};
+		var reducedArr = arr5.reduce(function(acc,current,currentIndex,arr){
+			
+			
+			acc.count = acc.count + 1 ;
+			acc.totalVal = acc.totalVal + current.age;
+			// acc = totalVal/count;
+			acc.avg = acc.totalVal/acc.count;
+			return acc;
+		},reducedObj)
+		// console.log(voterEligibility);
+		
+	</script>
+</body>
+</html>
