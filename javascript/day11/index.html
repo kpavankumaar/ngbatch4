@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.container{
+			width:400px;
+			margin:auto;
+		}
+		ul{
+			margin:0px;
+		}
+		ul li{
+			width:100px;
+			border:2px solid black;
+			padding:10px;
+			
+			list-style-type: none;
+			float:left;
+		}
+		ul::after, ul::before{
+			content:'';
+			display: block;
+			/*width:20px;
+			height:20px;
+			background-color: red;*/
+			clear:both;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h3>Ravi kumar</h3>
+		<ul>
+			<li>ProductName</li>
+			<li>Item Cost</li>
+		</ul>
+		<ul>
+			<li>Groceries</li>
+			<li>2000</li>
+		</ul>
+		<ul>
+			<li>Basketball</li>
+			<li>500</li>
+		</ul>
+		<ul>
+			<li>totalcost</li>
+			<li>2500</li>
+		</ul>
+	</div>
+	<div class="container">
+		<h3>Pavan kumar</h3>
+		<ul>
+			<li>ProductName</li>
+			<li>Item Cost</li>
+		</ul>
+		<ul>
+			<li>Groceries</li>
+			<li>2000</li>
+		</ul>
+		<ul>
+			<li>Basketball</li>
+			<li>500</li>
+		</ul>
+		<ul>
+			<li>totalcost</li>
+			<li>2500</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="./data.js"></script>
+	<script type="text/javascript">
+		var divEl = document.createElement('div');
+		
+		
+		
+		//product -> productName, itemCost
+		//divEl -> username, product
+		//body -> divEl
+		var arr = [
+			{
+				name:'lakshmi',
+				orders:[
+					{productname:'dress',itemCost:1500},
+					{productname:'furniture',itemCost:15000}
+				]
+			},
+			{
+				name:'Ramakrishna',
+				orders:[
+					{productname:'stationary',itemCost:500},
+					{productname:'Books',itemCost:1000},
+					{productname:'cloths',itemCost:1000}
+				]
+			}
+		]
+		// userName.innerText = 'lakshmi';
+		// productName.innerText = 'cricket kit'
+		// itemCost.innerText = 5000;
+		// product.appendChild(productName);
+		// product.appendChild(itemCost);
+		// divEl.appendChild(userName)
+		// divEl.appendChild(product)
+		// document.body.appendChild(divEl);
+		// meant for each customer in arr 
+		for(var i = 0 ; i< arr.length; i = i+1){
+			var userName = document.createElement('h3');
+			userName.innerText = arr[i].name;
+			// number of orders customer has placed
+			for(var j = 0 ; j< arr[i].orders.length; j = j+1){
+				var product = document.createElement('ul');
+				var productName = document.createElement('li');
+				var itemCost = document.createElement('li');
+				productName.innerText = arr[i].orders[j].productname;
+				itemCost.innerText = arr[i].orders[j].itemCost;
+				product.appendChild(productName);
+				product.appendChild(itemCost);
+				divEl.appendChild(userName);
+				divEl.setAttribute('class','container');
+				divEl.appendChild(product)
+				document.body.appendChild(divEl);
+			}
+		}
+
+	</script>
+</body>
+</html>

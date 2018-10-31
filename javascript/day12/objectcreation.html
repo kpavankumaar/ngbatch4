@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj = {
+			name : 'ravi',
+			details: function(){
+				console.log(this);
+			}
+		}
+		obj.details();
+		function sofaSet(type,shape,cusions){
+			this.sofasettype = type;
+			this.sofasetshape = shape;
+			this.sofasetcusions = cusions;
+		}
+		function Furniture(sofasetdetails,table,bed){
+			// console.log(this);
+			// this.sofa = sofaset;
+			console.log(typeof sofasetdetails);
+			sofaSet.apply(this,sofasetdetails);
+			this.table = table;
+			this.bed = bed;
+			
+		}
+		var detailsOfSofaset = ['wooden','l-shape','nocusions'];
+		var custOrder = new Furniture(detailsOfSofaset,'studytable','childrenbed');
+		// Furniture.call(obj,'wooden','studytable','childrenbed');
+
+	</script>
+</body>
+</html>

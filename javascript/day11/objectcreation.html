@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Object creation</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = {name_1: 'ravi'};
+		var b = a;
+		b.name_1  = 'krishna';
+		console.log(a.name_1);
+		var c = Object.create(a);
+		c.name = 'radha';
+		console.log(c.name_1);
+		console.log(a.name_1);
+		console.log(this);
+
+		function Furniture(sofaset,table,bed){
+			console.log(this);
+			this.sofa = sofaset;
+			this.table = table;
+			this.bed = bed;
+			console.log(this);
+			function run(){
+				console.log(this);
+			}
+			run();
+		}
+
+	</script>
+</body>
+</html>
