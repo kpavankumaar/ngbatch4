@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery</title>
+</head>
+<body>
+	<div>
+		<p>Text for a paragraph</p>
+		<button id="show">show</button>
+		<button id="hide">hide</button>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$('#show').on('click',function(){
+			console.log('data to be loaded');
+			$('p').show();
+		})
+		$('#hide').on('click',function(){
+			console.log('data to be loaded');
+			$('p').hide();
+		})
+	</script>
+</body>
+</html>

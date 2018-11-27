@@ -40,9 +40,13 @@
 		var detailsOfSofaset = ['wooden','l-shape','nocusions'];
 		var custOrder = new Furniture(detailsOfSofaset,'studytable','childrenbed');
 		
+		var custOrder1 = new Furniture(null,'dinning table',null)
+		custOrder1.funitureOrderDetails = function(){
+			console.log(this.table);
+		}
 
 		// Furniture.call(obj,'wooden','studytable','childrenbed');
-
+		
 	</script>
 </body>
 </html>

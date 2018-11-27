@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj = {
+			    "userId": 2,
+			    "id": 20,
+			    "title": "New Data",
+			    "body": "eveniet quo quis\nlaborum totam consequatur non dolor\nut et est repudiandae\nest voluptatem vel debitis et magnam"
+			  }
+		var xhr = new XMLHttpRequest();
+		console.log('xhr.readyState',xhr.readyState);
+		xhr.open('get','https://jsonplaceholder.typicode.com/posts',true);
+		console.log('xhr.readyState after open',xhr.readyState);
+		xhr.onreadystatechange = function(){
+			console.log('xhr.readyState on readystatechange', xhr.readyState)
+			if(xhr.readyState == 4 && xhr.status == 200){
+					console.log(xhr.response);
+			}else{
+				console.log('xhr.status',xhr.status);
+			}
+		}
+		xhr.onprogress = function(){
+			console.log('xhr.readyState  onprogress',xhr.readyState);	
+		}
+		xhr.onload = function(){
+			console.log('xhr.readyState  onload',xhr.readyState);	
+		}
+
+		xhr.send('null');
+		// console.log('xhr.readyState after send',xhr.readyState);
+		var obj = {
+			name:'ravi'
+		}
+		var obj2 = obj;
+		delete obj.name;
+		console.log(obj2)
+		let z = [4,4];
+		// let a =  z;
+		z.push(z);
+		console.log(z);
+		var a = '2' + '2' - '2'
+	</script>
+</body>
+</html>
