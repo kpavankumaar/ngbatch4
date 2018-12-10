@@ -2,7 +2,7 @@ interface Table {
     make : string;
     work: (a:number,b:string) => number;
     test?:number;
-    
+    [index:string]:any;
 }
 let table:Table;
 table = {
@@ -10,7 +10,7 @@ table = {
     work:function(x,y){
         return 20;
     },
-    name:'pavan'
+    'name':'pavan'
 }
 
 table.make = 'change';
@@ -21,10 +21,10 @@ interface CustomerData{
 
 let arr_1:CustomerData = ['ravi','pavan',20,[3,4],{}];
 
-class Mobile_1 {
+class Mobile {
     constructor(brand){
         console.log(brand);
     }
 }
 
-let samsungMobile = new Mobile_1('samsung');
+let samsungMobile = new Mobile('samsung');
