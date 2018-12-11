@@ -1,16 +1,30 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    Welcome to {{ call()+ ' ' + title  }}!
+    <!-- {{num += num }} -->
   </h1>
   <button (click) = 'toggle()'>show/hide</button>
-  <input type="text"  autocomplete="off" #firstname (keyup) = 'run($event.target.value)'   name='username' placeholder="username">
-  <input type="text" [value]= 'lastname'>
+  <input type="text"  autocomplete="off"  (keyup) = 'run($event.target.value)'   name='username' placeholder="username">
+  <input type="text" name= 'lastname' [value] = 'lastname'>
+  <!-- <input type="text" #age name = 'age' (keyup) = 'age = $event.target'> -->
   <img [src]="srcVal" alt="">
   <select *ngIf = 'flag' (change) = 'run($event.target.value)'>
     <option *ngFor = 'let item of countries'>
         {{item}}
     </option>
   </select>
-  <p>{{inputVal}}</p>
+  <select *ngIf = 'flag' (change) = 'colorChange($event.target.value)'>
+    <option *ngFor = 'let color of colors' >
+        {{color}}
+    </option>
+  </select>
+  <ul>
+    <li *ngFor = 'let ans of answersArr; let i = index' >
+        <label for="">{{'Answer ' +' ' + i}}</label>{{ans}}
+    </li>
+  </ul>
+  
+  <p [style.backgroundColor] = 'color'>background color for this text {{color}}{{inputVal}}</p>
+  <!-- <p>{{age.value}}</p> -->
 </div>
