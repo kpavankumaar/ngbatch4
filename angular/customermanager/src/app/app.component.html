@@ -5,8 +5,10 @@
     <!-- {{num += num }} -->
   </h1>
   <button (click) = 'toggle()'>show/hide</button>
-  <input type="text"  autocomplete="off"  (keyup) = 'run($event.target.value)'   name='username' placeholder="username">
+  <input type="text"  autocomplete="off" #username (blur) = 'blurfn(username.value)' (keyup.enter) = 'run($event.target.value)'   name='username' placeholder="username">
+  
   <input type="text" name= 'lastname' [value] = 'lastname'>
+  <input type="text"  autocomplete="off" (keyup.enter) = 'run($event.target.value)'   name='username' placeholder="age">
   <!-- <input type="text" #age name = 'age' (keyup) = 'age = $event.target'> -->
   <img [src]="srcVal" alt="">
   <select *ngIf = 'flag' (change) = 'run($event.target.value)'>
@@ -27,4 +29,12 @@
   
   <p [style.backgroundColor] = 'color'>background color for this text {{color}}{{inputVal}}</p>
   <!-- <p>{{age.value}}</p> -->
-</div>
+  <p>{{username.value}}</p>
+  <form>
+    <div>
+      <input type="text" [(ngModel)] = 'phone' name = 'phone'>
+    </div>  
+    <p>{{phone}}</p>
+  </form>
+   
+</div> 
