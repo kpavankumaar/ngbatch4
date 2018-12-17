@@ -30,11 +30,38 @@
   <p [style.backgroundColor] = 'color'>background color for this text {{color}}{{inputVal}}</p>
   <!-- <p>{{age.value}}</p> -->
   <p>{{username.value}}</p>
-  <form>
+  <form #loginDetails = 'ngForm'>
     <div>
-      <input type="text" [(ngModel)] = 'phone' name = 'phone'>
+      <input 
+        type="text" 
+        [(ngModel)] = 'phone' 
+        required
+        name = 'phone' >
+    </div> 
+    <div>
+      <label for="pwd" [disabled] = 'loginDetails.controls?.password.invalid'>Must enter password to login </label>
+      <input type="password" 
+        id="pwd"
+        [(ngModel)] = 'pwd' 
+        required
+        minlength="6"
+        name = 'password'>
     </div>  
-    <p>{{phone}}</p>
+    <p>loginDetails.controls?.phone.valid : {{loginDetails.controls?.phone.valid}}</p>
+    <p>loginDetails.controls?.phone.invalid : {{loginDetails.controls?.phone.invalid}}</p>
+    <p>loginDetails.controls?.phone.pristine : {{loginDetails.controls?.phone.pristine}}</p>
+    <p>loginDetails.controls?.phone.dirty : {{loginDetails.controls?.phone.dirty}}</p>
+    <p>loginDetails.controls?.phone.touched : {{loginDetails.controls?.phone.touched}}</p>
+    <p>loginDetails.controls?.phone.untouched : {{loginDetails.controls?.phone.untouched}}</p>
+    <p>loginDetails.controls?.password.valid : {{loginDetails.controls?.password.valid}}</p>
+    <p>loginDetails.controls?.password.invalid : {{loginDetails.controls?.password.invalid}}</p>
+    <p>loginDetails.controls?.password.pristine : {{loginDetails.controls?.password.pristine}}</p>
+    <p>loginDetails.controls?.password.dirty : {{loginDetails.controls?.password.dirty}}</p>
+    <p>loginDetails.controls?.password.touched : {{loginDetails.controls?.password.touched}}</p>
+    <p>loginDetails.controls?.password.untouched : {{loginDetails.controls?.password.untouched}}</p>
+    <p>loginDetails.control.valid: {{loginDetails.control.valid}}</p>
+    <p>loginDetails.control.invalid: {{loginDetails.control.invalid}}</p>
+    <button [disabled] = 'loginDetails.control.invalid'>login</button>
   </form>
    
 </div> 
