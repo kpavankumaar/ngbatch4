@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ThrowStmt } from '@angular/compiler';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,10 @@ import { ThrowStmt } from '@angular/compiler';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  save(val:NgForm){
+    console.log(val);
+  }
+  emailVal='';
   answersArr =['xyz', 'abc', 'def'];
   title = 'Pavan';
   inputVal ='';

@@ -1,15 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
+   <!-- <h1>
     Welcome to {{ call()+ ' ' + title  }}!
-    <!-- {{num += num }} -->
+     {{num += num }}
   </h1>
   <button (click) = 'toggle()'>show/hide</button>
   <input type="text"  autocomplete="off" #username (blur) = 'blurfn(username.value)' (keyup.enter) = 'run($event.target.value)'   name='username' placeholder="username">
   
   <input type="text" name= 'lastname' [value] = 'lastname'>
   <input type="text"  autocomplete="off" (keyup.enter) = 'run($event.target.value)'   name='username' placeholder="age">
-  <!-- <input type="text" #age name = 'age' (keyup) = 'age = $event.target'> -->
+  <input type="text" #age name = 'age' (keyup) = 'age = $event.target'> 
   <img [src]="srcVal" alt="">
   <select *ngIf = 'flag' (change) = 'run($event.target.value)'>
     <option *ngFor = 'let item of countries'>
@@ -28,9 +28,9 @@
   </ul>
   
   <p [style.backgroundColor] = 'color'>background color for this text {{color}}{{inputVal}}</p>
-  <!-- <p>{{age.value}}</p> -->
+  <p>{{age.value}}</p> 
   <p>{{username.value}}</p>
-  <form #loginDetails = 'ngForm'>
+  <form #loginDetails = 'ngForm' ngSubmit='save(loginDetails)' >
     <div>
       <input 
         type="text" 
@@ -39,14 +39,16 @@
         name = 'phone' >
     </div> 
     <div>
-      <label for="pwd" [disabled] = 'loginDetails.controls?.password.invalid'>Must enter password to login </label>
+      
       <input type="password" 
         id="pwd"
         [(ngModel)] = 'pwd' 
         required
         minlength="6"
         name = 'password'>
+        <span for="pwd" *ngIf='loginDetails.controls?.password.invalid && loginDetails.controls?.password.touched'>Must enter password to login </span>
     </div>  
+    <button [disabled] = 'loginDetails.control.invalid'>login</button>
     <p>loginDetails.controls?.phone.valid : {{loginDetails.controls?.phone.valid}}</p>
     <p>loginDetails.controls?.phone.invalid : {{loginDetails.controls?.phone.invalid}}</p>
     <p>loginDetails.controls?.phone.pristine : {{loginDetails.controls?.phone.pristine}}</p>
@@ -61,7 +63,40 @@
     <p>loginDetails.controls?.password.untouched : {{loginDetails.controls?.password.untouched}}</p>
     <p>loginDetails.control.valid: {{loginDetails.control.valid}}</p>
     <p>loginDetails.control.invalid: {{loginDetails.control.invalid}}</p>
-    <button [disabled] = 'loginDetails.control.invalid'>login</button>
+    
+  </form> --> 
+  <form #loginForm = 'ngForm' (ngSubmit) = 'save(loginForm)'>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" 
+        name='email'
+        required
+        email
+        class="form-control" 
+        id="exampleInputEmail1" 
+        [(ngModel)] = 'emailVal'
+        [ngClass] = "{'is-invalid':false}"
+        placeholder="Enter email">
+        <p>{{loginForm.controls?.email.touched}}  {{loginForm.controls?.email.valid}}</p>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" 
+        name="password"
+        ngModel
+        class="form-control" 
+        id="exampleInputPassword1" 
+        placeholder="Password">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" 
+        name="verify"
+        ngModel
+        class="form-check-input" 
+        id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled] = 'loginForm.control.invalid'>login</button>
+    
   </form>
-   
 </div> 
