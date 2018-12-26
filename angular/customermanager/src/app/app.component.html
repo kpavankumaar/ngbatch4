@@ -1,281 +1,100 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-   <!-- <h1>
-    Welcome to {{ call()+ ' ' + title  }}!
-     {{num += num }}
-  </h1>
-  <button (click) = 'toggle()'>show/hide</button>
-  <input type="text"  autocomplete="off" #username (blur) = 'blurfn(username.value)' (keyup.enter) = 'run($event.target.value)'   name='username' placeholder="username">
+<app-reactiveform></app-reactiveform>
+<!-- <div class="container">
+  <form #loginForm='ngForm' (ngSubmit)='save(loginForm)'>
+    <div class="form-group">
+      <label for="firstname1">FirstName</label>
+      <input type="test" name='firstname' required minlength="3" class="form-control" id="firstname1" ngModel #firstNameVar='ngModel'
+        [ngClass]="{'is-invalid':(firstNameVar.touched && firstNameVar.dirty) && !firstNameVar.valid}" placeholder="Enter FirstName">
+      <span class="invalid-feedback">
+        <span *ngIf="firstNameVar.errors?.required">
+          please enter you firstname
+        </span>
+        <span *ngIf="firstNameVar.errors?.minlength">
+          firstname must be more than 3 characters
+        </span>
+      </span>
   
-  <input type="text" name= 'lastname' [value] = 'lastname'>
-  <input type="text"  autocomplete="off" (keyup.enter) = 'run($event.target.value)'   name='username' placeholder="age">
-  <input type="text" #age name = 'age' (keyup) = 'age = $event.target'> 
-  <img [src]="srcVal" alt="">
-  <select *ngIf = 'flag' (change) = 'run($event.target.value)'>
-    <option *ngFor = 'let item of countries'>
-        {{item}}
-    </option>
-  </select>
-  <select *ngIf = 'flag' (change) = 'colorChange($event.target.value)'>
-    <option *ngFor = 'let color of colors' >
-        {{color}}
-    </option>
-  </select>
-  <ul>
-    <li *ngFor = 'let ans of answersArr; let i = index' >
-        <label for="">{{'Answer ' +' ' + i}}</label>{{ans}}
-    </li>
-  </ul>
-  
-  <p [style.backgroundColor] = 'color'>background color for this text {{color}}{{inputVal}}</p>
-  <p>{{age.value}}</p> 
-  <p>{{username.value}}</p>
-  <form #loginDetails = 'ngForm' ngSubmit='save(loginDetails)' >
-    <div>
-      <input 
-        type="text" 
-        [(ngModel)] = 'phone' 
-        required
-        name = 'phone' >
-    </div> 
-    <div>
-      
-      <input type="password" 
-        id="pwd"
-        [(ngModel)] = 'pwd' 
-        required
-        minlength="6"
-        name = 'password'>
-        <span for="pwd" *ngIf='loginDetails.controls?.password.invalid && loginDetails.controls?.password.touched'>Must enter password to login </span>
-    </div>  
-    <button [disabled] = 'loginDetails.control.invalid'>login</button>
-    <p>loginDetails.controls?.phone.valid : {{loginDetails.controls?.phone.valid}}</p>
-    <p>loginDetails.controls?.phone.invalid : {{loginDetails.controls?.phone.invalid}}</p>
-    <p>loginDetails.controls?.phone.pristine : {{loginDetails.controls?.phone.pristine}}</p>
-    <p>loginDetails.controls?.phone.dirty : {{loginDetails.controls?.phone.dirty}}</p>
-    <p>loginDetails.controls?.phone.touched : {{loginDetails.controls?.phone.touched}}</p>
-    <p>loginDetails.controls?.phone.untouched : {{loginDetails.controls?.phone.untouched}}</p>
-    <p>loginDetails.controls?.password.valid : {{loginDetails.controls?.password.valid}}</p>
-    <p>loginDetails.controls?.password.invalid : {{loginDetails.controls?.password.invalid}}</p>
-    <p>loginDetails.controls?.password.pristine : {{loginDetails.controls?.password.pristine}}</p>
-    <p>loginDetails.controls?.password.dirty : {{loginDetails.controls?.password.dirty}}</p>
-    <p>loginDetails.controls?.password.touched : {{loginDetails.controls?.password.touched}}</p>
-    <p>loginDetails.controls?.password.untouched : {{loginDetails.controls?.password.untouched}}</p>
-    <p>loginDetails.control.valid: {{loginDetails.control.valid}}</p>
-    <p>loginDetails.control.invalid: {{loginDetails.control.invalid}}</p>
-    
-  </form> --> 
-<<<<<<< HEAD
-  <form #loginForm = 'ngForm' (ngSubmit) = 'save(loginForm)'>
+    </div>
+    <div class="form-group">
+      <label for="lastname1">LastName</label>
+      <input type="text" name='lastname' required minlength="3" class="form-control" id="lastname1" [(ngModel)]='lastName' #lastNameVar='ngModel'
+        [ngClass]="{'is-invalid':(lastNameVar.touched && lastNameVar.dirty) && !lastNameVar.valid}" placeholder="Enter lastname">
+      <span class="invalid-feedback">
+        <span *ngIf="lastNameVar.errors?.required">
+          please enter you lastname
+        </span>
+        <span *ngIf="lastNameVar.errors?.minlength">
+          lastname must be more than 3 characters
+        </span>
+      </span>
+    </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" 
-        name='email'
-        required
-        email
-        class="form-control" 
-        id="exampleInputEmail1" 
-        [(ngModel)] = 'emailVal'
-        #emailVar = 'ngModel'
-        [ngClass] = "{'is-invalid':emailVar.touched}"
-        placeholder="Enter email">
-        <!-- <p>{{loginForm.controls?.email.touched}}  {{loginForm.controls?.email.valid}}</p> -->
-        <span class="invalid-feedback">
-          <span *ngIf="emailVar.errors?.required">
-            Please enter your email address
-          </span>
-          <span *ngIf="emailVar.errors?.email">
-            please enter a valid email address
-          </span>
+      <input type="email" name='email' required email class="form-control" id="exampleInputEmail1" [(ngModel)]='emailVal' #emailVar='ngModel'
+        [ngClass]="{'is-invalid':(emailVar.touched && emailVar.dirty) && !emailVar.valid}" placeholder="Enter email">
+      <p>{{emailVar.touched}} {{loginForm.controls?.email.valid}}</p> 
+      <span class="invalid-feedback">
+        <span *ngIf="emailVar.errors?.required">
+          Please enter your email address
         </span>
-        
+        <span *ngIf="emailVar.errors?.email">
+          please enter a valid email address
+        </span>
+      </span>
+  
     </div>
     <div>
-      
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" 
-        name="password"
-        ngModel
-        class="form-control" 
-        id="exampleInputPassword1" 
-        placeholder="Password">
+  
     </div>
     <div class="form-group form-check">
-      <input type="checkbox" 
-        name="verify"
-        ngModel
-        class="form-check-input" 
-        id="exampleCheck1">
+      <input type="checkbox" name="verify" ngModel #verifyVar='ngModel' class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <button type="submit" 
-      class="btn btn-primary" 
-      [title] = "loginForm.control.valid ? 'save the entered data' : 'disabled until the form data is valid'"
-      [disabled] = 'loginForm.control.invalid'>login</button>
-    
-  </form>
-</div> 
-=======
-  <div class="container">
-      <form  (ngSubmit) = 'save(loginForm)'>
-          <div class="form-group">
-            <label for="firstName1">FirstName</label>
-            <input type="text" 
-              name="firstName"
-              ngModel
-              #firstNameVar = 'ngModel'
-              class="form-control" 
-              id="firstName1" 
-              [ngClass] = "{'is-invalid':firstNameVar.touched && firstNameVar.invalid }"
-              placeholder="Enter FirstName">
-              <div class="invalid-feedback" >
-                <span *ngIf = 'firstNameVar.errors?.required'>
-                  Enter your email address 
-                </span>
-                <span *ngIf = 'firstNameVar.errors?.email'>
-                  Enter a valid email address
-                </span>
-              </div>
-          </div>
-          <div class="form-group">
-              <label for="lastName1">LastName</label>
-              <input type="text" 
-                name="lastName"
-                ngModel
-                #lastNameVar = 'ngModel'
-                class="form-control" 
-                id="lastName1" 
-                [ngClass] = "{'is-invalid':lastNameVar.touched && lastNameVar.invalid }"
-                placeholder="Enter lastName">
-                <div class="invalid-feedback" >
-                  <span *ngIf = 'lastNameVar.errors?.required'>
-                    Enter your email address 
-                  </span>
-                  <span *ngIf = 'lastNameVar.errors?.email'>
-                    Enter a valid email address
-                  </span>
-                </div>
-            </div>
-      
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input class="form-control" 
-              type="email" 
-              name='email'
-              required
-              email
-              id="exampleInputEmail1" 
-              [(ngModel)] = 'emailVal'
-              #emailVar = 'ngModel'
-              [ngClass] = "{'is-invalid':emailVar.touched && emailVar.invalid }"
-              placeholder="Enter email">
-              <div class="invalid-feedback" >
-                <span *ngIf = 'emailVar.errors?.required'>
-                  Enter your email address 
-                </span>
-                <span *ngIf = 'emailVar.errors?.email'>
-                  Enter a valid email address
-                </span>
-              </div>
-              
-          </div>
-          
-          <div class="form-group form-check">
-            <input type="checkbox" 
-              name="verify"
-              ngModel
-              class="form-check-input" 
-              id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-          <!-- addresstype , street, city, state, zip -->
-          <div>
-      
-          </div>
-          <div class="form-group">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" 
-                type="radio" 
-                name="inlineRadioOptions" 
-                id="inlineRadio1" 
-                value="option1">
-              <label class="form-check-label" for="inlineRadio1">Home</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" 
-              type="radio" 
-              name="inlineRadioOptions" 
-              id="inlineRadio2" 
-              value="option2">
-              <label class="form-check-label" for="inlineRadio2">Work</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" 
-              type="radio" 
-              name="inlineRadioOptions" 
-              id="inlineRadio3" 
-              value="option3" disabled>
-              <label class="form-check-label" for="inlineRadio3">Others</label>
-            </div>
-            <div class="form-group">
-              <label for="street1">Street1</label>
-              <input class="form-control" 
-                type="text" 
-                name='street1'
-                required
-                minlength="3"
-                id="street1" 
-                [(ngModel)] = 'street1'
-                placeholder="Enter street1">
-            </div>
-            <div class="form-group">
-              <label for="street2">Street2</label>
-              <input class="form-control" 
-                type="text" 
-                name='street2'
-                required
-                minlength="3"
-                id="street2" 
-                [(ngModel)] = 'stree21'
-                placeholder="Enter street2">
-            </div>
-            <div class="form-group">
-              <label for="city">city</label>
-              <input class="form-control" 
-                type="text" 
-                name='city'
-                id="city" 
-                [(ngModel)] = 'city'
-                placeholder="Enter city">
-            </div>
-            <div class="form-group">
-              <label for="state">state</label>
-              <input class="form-control" 
-                type="text" 
-                name='state'
-                id="state" 
-                [(ngModel)] = 'state'
-                placeholder="Enter state">
-            </div>
-            <div class="form-group">
-              <label for="zip">zip</label>
-              <input class="form-control" 
-                type="number" 
-                name='zip'
-                id="zip" 
-                [(ngModel)] = 'zip'
-                placeholder="Enter zip">
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary" [disabled] = 'loginForm.control.invalid'>login</button>
-          
-        </form>
-      </div> 
-      <form action="">
-        <input type="text" ngModel>
-      </form>
-  </div>
+    <div *ngIf='verifyVar.value'>
+      <div class="form-group">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="addresstype" id="home" value="option1" checked>
+          <label class="form-check-label" for="home">
+            Home
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="addresstype" id="exampleRadios2" value="option2">
+          <label class="form-check-label" for="exampleRadios2">
+            Second default radio
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="addresstype" id="exampleRadios3" value="option3" disabled>
+          <label class="form-check-label" for="exampleRadios3">
+            Disabled radio
+          </label>
+        </div>
   
->>>>>>> 7a530309135c7428a5d9ade403f2594c563a339e
+      </div>
+      <div class="form-group">
+        <input type="text" name='street1' class="form-control" required id="street1" [(ngModel)]='street1' #street1Var='ngModel'
+          [ngClass]="{'is-invalid':(street1Var.touched && street1Var.dirty) && !street1Var.valid}" placeholder="Enter street1">
+      </div>
+      <div class="form-group">
+        <input type="text" name='street2' class="form-control" id="street2" [(ngModel)]='street2' #street2Var='ngModel' [ngClass]="{'is-invalid':(street2Var.touched && street2Var.dirty) && !street2Var.valid}"
+          placeholder="Enter street2">
+      </div>
+      <div class="form-group">
+        <input type="text" name='city' class="form-control" required id="city" [(ngModel)]='city' #cityVar='ngModel' [ngClass]="{'is-invalid':(cityVar.touched && cityVar.dirty) && !cityVar.valid}"
+          placeholder="Enter city">
+      </div>
+      <div class="form-group">
+        <input type="text" name='state' class="form-control" required id="state" [(ngModel)]='state' #stateVar='ngModel' [ngClass]="{'is-invalid':(stateVar.touched && stateVar.dirty) && !stateVar.valid}"
+          placeholder="Enter state">
+      </div>
+      <div class="form-group">
+        <input type="number" name='zip' class="form-control" required id="zip" [(ngModel)]='zip' #zipVar='ngModel' [ngClass]="{'is-invalid':(zipVar.touched && zipVar.dirty) && !zipVar.valid}"
+          placeholder="Enter state">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [title]="loginForm.control.valid ? 'save the entered data' : 'disabled until the form data is valid'"
+      [disabled]='loginForm.control.invalid'>login</button>
+  
+  </form>
+</div> -->
