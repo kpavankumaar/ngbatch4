@@ -16,6 +16,7 @@ export class ReactiveformComponent implements OnInit {
       firstName: new FormControl(''),
       lastName: new FormControl(''),
       email: new FormControl(''),
+      verify: new FormControl(true)
     });
   }
   save() {
