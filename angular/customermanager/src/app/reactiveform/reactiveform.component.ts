@@ -21,5 +21,4 @@ export class ReactiveformComponent implements OnInit {
   save() {
     console.log(this.customersForm);
   }
-  
 }
