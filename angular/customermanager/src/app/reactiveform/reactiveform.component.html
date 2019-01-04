@@ -78,7 +78,58 @@
       </span>
     </div>
   </div>
+<<<<<<< HEAD
   
+=======
+  <!-- phone -->
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="number" 
+      formControlName='phone' 
+      class="form-control" 
+      id="phone" 
+      [ngClass]="{'is-invalid':(customersForm.get('phone').touched || 
+                                customersForm.get('phone').dirty)  && 
+                                !customersForm.get('phone').valid}"
+      placeholder="Phone">
+    <span class="invalid-feedback">
+      <span *ngIf="customersForm.get('phone').errors?.required">
+        Please enter your phone number
+      </span>
+      <!-- <span *ngIf="customersForm.get('phone').errors?.min">
+        Please enter a valid phone number
+      </span> -->
+    </span>
+  </div>
+
+  <!-- notification  -->
+  <div class="form-group">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" 
+        type="radio"
+        formControlName = "sendNotification"
+        id="emailnotification"
+        (click) = "setNotification('email')"
+        value="email">
+      <label class="form-check-label" for="emailnotification">
+        Email
+      </label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" 
+        type="radio" 
+         formControlName = "sendNotification"
+        id="textnotification"
+        (click) = "setNotification('text')" 
+        value="text">
+      <label class="form-check-label" for="textnotification">
+        Text
+      </label>
+    </div>
+    
+  
+  </div>
+>>>>>>> 7d5c5d4a7762859cbe3cfe9de8c8c049285844f0
   <!-- rating range -->
   <div class="form-group">
     <label for="rating">Ratings</label>
@@ -86,19 +137,21 @@
       formControlName = 'rating'
       class="form-control" 
       id="rating" 
-      [ngClass]="{'is-invalid':(customersForm.get('rating').touched && customersForm.get('rating').dirty)  && !customersForm.get('rating').valid}" 
+      [ngClass]="{'is-invalid':(customersForm.get('rating').touched || customersForm.get('rating').dirty)  && !customersForm.get('rating').valid}" 
       placeholder="Enter rating">
     <span class="invalid-feedback">
-      <span *ngIf="
-                  customersForm.get('rating').errors?.min 
+      <span *ngIf = "customersForm.get('rating').errors.range">
+         Please enter a value between 1 and 5
+      </span>
+      <!-- <span *ngIf="customersForm.get('rating').errors?.min 
                   || customersForm.get('rating').errors?.max">
         Please enter a value between 1 and 5
       </span>
-      
+       -->
     </span>
 
   </div>
- 
+
   <div class="form-group form-check">
     <input class="form-check-input" 
       type="checkbox" 
