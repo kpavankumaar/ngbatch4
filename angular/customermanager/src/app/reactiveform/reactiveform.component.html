@@ -1,3 +1,4 @@
+<app-customercomponent></app-customercomponent>
 <form [formGroup] = 'customersForm' (ngSubmit)='save()'>
   <div class="form-group">
     <label for="firstname1">FirstName</label>
@@ -35,25 +36,49 @@
       </span>
     </span>
   </div>
-  <!-- email  -->
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" 
-      formControlName = 'email'
-      class="form-control" 
-      id="exampleInputEmail1" 
-      [ngClass]="{'is-invalid':(customersForm.get('email').touched && customersForm.get('email').dirty)  && !customersForm.get('email').valid}" 
-      placeholder="Enter email">
-    <span class="invalid-feedback">
-      <span *ngIf="customersForm.get('email').errors?.required">
-        Please enter your email address
+  <div formGroupName = 'emailGroup'>
+    <!-- email  -->
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" 
+        formControlName = 'email'
+        class="form-control" 
+        id="exampleInputEmail1" 
+        [ngClass]="{'is-invalid':(customersForm.get('emailGroup.email').touched && customersForm.get('emailGroup.email').dirty)  && !customersForm.get('emailGroup.email').valid}" 
+        placeholder="Enter email">
+      <span class="invalid-feedback">
+        <span *ngIf="customersForm.get('emailGroup.email').errors?.required">
+          Please enter your email address
+        </span>
+        <span *ngIf="customersForm.get('emailGroup.email').errors?.email">
+          Please enter a valid email address
+        </span>
       </span>
-      <span *ngIf="customersForm.get('email').errors?.email">
-        Please enter a valid email address
-      </span>
-    </span>
 
+    </div>
+    <!-- confirmEmail -->
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" 
+        formControlName = 'confirmEmail'
+        class="form-control" 
+        id="exampleInputEmail1" 
+        [ngClass]="{'is-invalid': customersForm.get('emailGroup').errors ||
+                                  (customersForm.get('emailGroup.confirmEmail').touched && 
+                                  customersForm.get('emailGroup.confirmEmail').dirty)  && 
+                                  !customersForm.get('emailGroup.confirmEmail').valid}" 
+        placeholder="Enter confirmEmail">
+      <span class="invalid-feedback">
+        <span *ngIf="customersForm.get('emailGroup.confirmEmail').errors?.required">
+          Please enter your confirm address
+        </span>
+        <span *ngIf="customersForm.get('emailGroup').errors?.match">
+          Email address doesnot match .
+        </span>
+      </span>
+    </div>
   </div>
+  
   <!-- rating range -->
   <div class="form-group">
     <label for="rating">Ratings</label>
@@ -104,27 +129,27 @@
       
     </div>
     <div class="form-group">
-      <input type="text" name='street1'  class="form-control" required id="street1" [(ngModel)]='street1' #street1Var='ngModel'
-        [ngClass]="{'is-invalid':(street1Var.touched && street1Var.dirty) && !street1Var.valid}" placeholder="Enter street1">
+      <input type="text" name='street1'  class="form-control" required id="street1"
+       placeholder="Enter street1">
     </div>
     <div class="form-group">
-      <input type="text" name='street2' class="form-control" id="street2" [(ngModel)]='street2' #street2Var='ngModel' [ngClass]="{'is-invalid':(street2Var.touched && street2Var.dirty) && !street2Var.valid}"
+      <input type="text" name='street2' class="form-control" id="street2"
         placeholder="Enter street2">
     </div>
     <div class="form-group">
-      <input type="text" name='city' class="form-control" required id="city" [(ngModel)]='city' #cityVar='ngModel' [ngClass]="{'is-invalid':(cityVar.touched && cityVar.dirty) && !cityVar.valid}"
+      <input type="text" name='city' class="form-control" required id="city"
         placeholder="Enter city">
     </div>
     <div class="form-group">
-      <input type="text" name='state' class="form-control" required id="state" [(ngModel)]='state' #stateVar='ngModel' [ngClass]="{'is-invalid':(stateVar.touched && stateVar.dirty) && !stateVar.valid}"
+      <input type="text" name='state' class="form-control" required id="state"
         placeholder="Enter state">
     </div>
     <div class="form-group">
-      <input type="number" name='zip' class="form-control"required  id="zip" [(ngModel)]='zip' #zipVar='ngModel' [ngClass]="{'is-invalid':(zipVar.touched && zipVar.dirty) && !zipVar.valid}"
+      <input type="number" name='zip' class="form-control"required  id="zip"
         placeholder="Enter state">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" [title]="loginForm.control.valid ? 'save the entered data' : 'disabled until the form data is valid'"
-    [disabled]='loginForm.control.invalid'>login</button>
+  <button type="submit" class="btn btn-primary" [title]="customersForm.valid ? 'save the entered data' : 'disabled until the form data is valid'"
+    [disabled]='customersForm.invalid'>login</button>
 
 </form>

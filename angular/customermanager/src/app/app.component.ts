@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ThrowStmt } from '@angular/compiler';
 import { NgForm } from '@angular/forms';
 
@@ -8,7 +8,16 @@ import { NgForm } from '@angular/forms';
   // template: `<h1>welcome to angular classes</h1>`,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  appComponentInfo:string;
+  constructor(){
+        this.appComponentInfo = 'constructor of appComponentInfo';
+        console.log(this.appComponentInfo);
+    }
+    ngOnInit(){
+        this.appComponentInfo = 'ngOninit of appComponentInfo';
+        console.log(this.appComponentInfo);
+    }
   emailVal = '';
   firstName = '';
   lastName = '';
