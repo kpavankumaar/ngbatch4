@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'managerapp';
+  loadCustomersPage:boolean;
+  loadOrdersPage:boolean;
+  loadLoginPage:boolean;
+  recievePageLoadDetails(val){
+    console.log(val);
+  }
 }
