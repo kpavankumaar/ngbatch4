@@ -7,9 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  loadCustomersPageFlag:boolean = false;
-  loadOrdersPageFlag:boolean = false;
-  loadLoginPageFlag:boolean = false;
+  
   @Output() selectPageDetails = new EventEmitter()
   constructor() { }
 
@@ -17,25 +15,13 @@ export class MenuComponent implements OnInit {
   }
   loadPage(page:string){
     if(page === 'customerspage'){
-      console.log('customerspage')
-      this.loadCustomersPageFlag = true;
-      this.loadOrdersPageFlag = false;
-      this.loadLoginPageFlag = false;
-      this.selectPageDetails.emit(this.loadCustomersPageFlag) 
+      this.selectPageDetails.emit({loadCustomersPageFlag:true}) 
     }
     if(page === 'orderspage'){
-      console.log('orderspage')
-      this.loadCustomersPageFlag = false;
-      this.loadOrdersPageFlag = true;
-      this.loadLoginPageFlag = false;
-      this.selectPageDetails.emit(this.loadOrdersPageFlag) 
+      this.selectPageDetails.emit({loadOrdersPageFlag:true}) 
     }
     if(page === 'loginpage'){
-      console.log('loginpage')
-      this.loadCustomersPageFlag = false;
-      this.loadOrdersPageFlag = false;
-      this.loadLoginPageFlag = true;
-      this.selectPageDetails.emit(this.loadLoginPageFlag) 
+      this.selectPageDetails.emit({loadLoginPageFlag:true}) 
     }
      
   }

@@ -1,12 +1,14 @@
 <div class="container">
     <app-menu (selectPageDetails) = 'recievePageLoadDetails($event)'></app-menu>
-    <div *ngIf = 'loadCustomersPage'>
+    <div *ngIf = 'showPage.loadCustomersPageFlag'>
         <app-customerscomponent></app-customerscomponent>
     </div>
-    <div *ngIf = 'loadOrdersPage'>
-        <app-orderscomponent></app-orderscomponent>
+    <div *ngIf = 'showPage.loadOrdersPageFlag'>
+        <h3>orderpage</h3>
+        <app-orders></app-orders>
     </div>
-    <div *ngIf = 'loadLoginPage'>
-        <app-logincomponent></app-logincomponent>
+    <div *ngIf = 'showPage.loadLoginPageFlag'>
+        <h3>loginpage</h3>
+        <app-login></app-login>
     </div>
 </div>
