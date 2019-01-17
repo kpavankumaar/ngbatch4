@@ -15,13 +15,13 @@ export class MenuComponent implements OnInit {
   }
   loadPage(page:string){
     if(page === 'customerspage'){
-      this.selectPageDetails.emit({loadCustomersPageFlag:true}) 
+      this.selectPageDetails.emit({loadCustomersPageFlag:true}) // trigger the events and send data
     }
     if(page === 'orderspage'){
-      this.selectPageDetails.emit({loadOrdersPageFlag:true}) 
+      this.selectPageDetails.emit({loadOrdersPageFlag:true}) // trigger the events and send data
     }
     if(page === 'loginpage'){
-      this.selectPageDetails.emit({loadLoginPageFlag:true}) 
+      this.selectPageDetails.emit({loadLoginPageFlag:true}) // trigger the events and send data
     }
      
   }
