@@ -7,6 +7,6 @@ import { OrdersComponent } from './orders/orders.component';
     CommonModule
   ],
   declarations: [OrdersComponent],
-  exports:[OrdersComponent]
+  
 })
 export class OrdersModule { }

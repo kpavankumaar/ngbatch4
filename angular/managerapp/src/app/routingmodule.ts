@@ -8,11 +8,14 @@ import { CoreModule } from './core/core.module';
 import { CustomersModule } from './customers/customers.module';
 import { OrdersModule } from './orders/orders.module';
 import { LoginModule } from './login/login.module';
+import { CommonModule } from '@angular/common';
 
 const route: Routes = [
     {path: 'customers' , component: CustomersComponent},
     { path: 'order', component: OrdersComponent },
-    { path: 'login', component: LoginComponent }
+    { path: 'login', component: LoginComponent },
+    {path: '' , redirectTo:'customers', pathMatch:'full'},
+    {path: '**' , component: CustomersComponent}
 ];
 
 @NgModule({
