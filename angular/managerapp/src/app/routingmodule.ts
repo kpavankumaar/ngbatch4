@@ -11,10 +11,10 @@ import { LoginModule } from './login/login.module';
 import { CommonModule } from '@angular/common';
 
 const route: Routes = [
-    {path: 'customers' , component: CustomersComponent},
+    {path: '' , redirectTo:'customers', pathMatch:'full'},
+    {path: 'customers' , loadChildren: './customers/customers.module#CustomersModule'},
     { path: 'order', component: OrdersComponent },
     { path: 'login', component: LoginComponent },
-    {path: '' , redirectTo:'customers', pathMatch:'full'},
     {path: '**' , component: CustomersComponent}
 ];
 
