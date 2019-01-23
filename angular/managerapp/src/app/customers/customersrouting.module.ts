@@ -7,7 +7,7 @@ import { CoreModule } from "../core/core.module";
 
 
 const customersRoute:Routes = [
-    {path:'',component:CustomersComponent}
+    {path:'customers',component:CustomersComponent}
 ]
 @NgModule({
     imports:[RouterModule.forChild(customersRoute),CoreModule],

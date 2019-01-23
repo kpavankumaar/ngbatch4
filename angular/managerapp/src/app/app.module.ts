@@ -3,21 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RoutingModule } from './routingmodule';
-import { CustomerComponent } from './customer/customer.component';
-import { CustomerEditComponent } from './customer/customer-edit.component';
-import { CustomerOrdersComponent } from './customer/customer-orders.component';
-import { CustomerDetailsComponent } from './customer/customer-details.component';
+import { CoreModule } from './core/core.module';
+import { CustomersModule } from './customers/customers.module';
+import { OrdersModule } from './orders/orders.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CustomerComponent,
-    CustomerEditComponent,
-    CustomerOrdersComponent,
-    CustomerDetailsComponent
-  ],
+    AppComponent],
   imports: [
-    BrowserModule, RoutingModule
+    BrowserModule,  
+    CoreModule, 
+    CustomersModule, 
+    OrdersModule, 
+    LoginModule, 
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
