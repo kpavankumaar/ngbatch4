@@ -24,5 +24,4 @@ const route: Routes = [
 })
 
 export class RoutingModule {
-    
 }
