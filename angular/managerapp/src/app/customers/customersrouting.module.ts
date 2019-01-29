@@ -1,19 +1,16 @@
-import { Routes, RouterModule } from "@angular/router";
-import { NgModule } from "@angular/core";
-import { CustomersComponent } from "./customerscomponent";
-import { CustomerscardviewComponent } from './customerscardview/customerscardview.component';
-import { CustomerslistviewComponent } from './customerslistview/customerslistview.component';
-import { CoreModule } from "../core/core.module";
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { CustomersComponent } from './customerscomponent';
 
 
-const customersRoute:Routes = [
-    {path:'customers',component:CustomersComponent}
-]
+
+const customersRoute: Routes = [
+    {path: '', component: CustomersComponent}
+];
 @NgModule({
-    imports:[RouterModule.forChild(customersRoute),CoreModule],
-    declarations: [CustomersComponent,CustomerscardviewComponent, CustomerslistviewComponent],
-    exports:[RouterModule]
+    imports: [RouterModule.forChild(customersRoute)],
+    exports: [RouterModule]
 })
-export class CustomersRoutingModule{
+export class CustomersRoutingModule {
 
 }

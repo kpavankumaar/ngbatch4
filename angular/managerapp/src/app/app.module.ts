@@ -12,12 +12,10 @@ import { LoginModule } from './login/login.module';
   declarations: [
     AppComponent],
   imports: [
-    BrowserModule,  
-    CoreModule, 
-    CustomersModule, 
-    OrdersModule, 
-    LoginModule, 
-    RoutingModule
+    BrowserModule,
+    LoginModule,
+    RoutingModule, // main routes for application
+    CoreModule, // eager loading as the selector for app menu is needed
   ],
   providers: [],
   bootstrap: [AppComponent]
