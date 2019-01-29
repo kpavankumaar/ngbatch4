@@ -14,8 +14,8 @@
         <a class="nav-link" routerLink = '/order'>Order</a>
       </li>
       
-      <li class="nav-item"  >
-        <a class="nav-link" routerLink = '/login' >Login</a>
+      <li class="nav-item"  (click) = 'loginOrOut()'>
+        <a class="nav-link"  >{{ loginLogOutText }}</a>
       </li>
     </ul>
   </div>

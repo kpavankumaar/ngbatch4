@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from './core/services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -31,4 +32,12 @@ export class AppComponent {
       this.showPage.loadOrdersPageFlag = false;
     }
   }
+  // recievedData;
+  // constructor(public dataService:DataService){
+
+  // }
+  // ngOnInit(){
+  //   this.recievedData = this.dataService.getData();
+  //   console.log(this.recievedData);
+  // }
 }

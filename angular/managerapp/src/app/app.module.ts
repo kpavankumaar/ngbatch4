@@ -7,19 +7,18 @@ import { CoreModule } from './core/core.module';
 import { CustomersModule } from './customers/customers.module';
 import { OrdersModule } from './orders/orders.module';
 import { LoginModule } from './login/login.module';
+import { DataService } from './core/services/data.service';
 
 @NgModule({
   declarations: [
     AppComponent],
   imports: [
     BrowserModule,  
-    CoreModule, 
-    CustomersModule, 
-    OrdersModule, 
-    LoginModule, 
-    RoutingModule
+    CoreModule, // eager loading  
+    RoutingModule, // routing of our application
+    LoginModule 
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

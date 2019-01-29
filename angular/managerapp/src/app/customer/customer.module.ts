@@ -19,4 +19,8 @@ import { CustomerDetailsComponent } from './customer-details.component';
     CustomerDetailsComponent
   ]
 })
-export class CustomerModule { }
+export class CustomerModule { 
+  constructor(){
+    console.log('Customer Module loaded ')
+  }
+}
