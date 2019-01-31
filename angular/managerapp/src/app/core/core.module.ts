@@ -9,8 +9,12 @@ import { DataService } from './services/data.service';
   imports: [
     CommonModule, RouterModule
   ],
-  providers:[DataService],
+  providers:[],
   declarations: [MenuComponent, CustomersnavComponent],
   exports: [MenuComponent,CustomersnavComponent]
 })
-export class CoreModule { }
+export class CoreModule {
+  constructor(){
+    console.log('CoreModule');
+  }
+ }

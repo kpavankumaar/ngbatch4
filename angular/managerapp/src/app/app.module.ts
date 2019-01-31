@@ -8,17 +8,18 @@ import { CustomersModule } from './customers/customers.module';
 import { OrdersModule } from './orders/orders.module';
 import { LoginModule } from './login/login.module';
 import { DataService } from './core/services/data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule,  
-    CoreModule, // eager loading  
-    RoutingModule, // routing of our application
-    LoginModule 
+    BrowserModule,
+    HttpClientModule,
+    RoutingModule, // main routes for application
+    LoginModule,
+    CoreModule, // eager loading as the selector for app menu is needed
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

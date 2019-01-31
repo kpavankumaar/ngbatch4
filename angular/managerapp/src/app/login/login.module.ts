@@ -5,9 +5,12 @@ import { LoginRoutingModule } from './loginroutingmodule';
 
 @NgModule({
   imports: [
-    CommonModule,LoginRoutingModule
+    CommonModule, LoginRoutingModule
   ],
   declarations: [LoginComponent],
-  
 })
-export class LoginModule { }
+export class LoginModule {
+  constructor(){
+    console.log('login module')
+  }
+ }

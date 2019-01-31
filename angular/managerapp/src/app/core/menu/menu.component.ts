@@ -10,8 +10,8 @@ import { DataService } from '../services/data.service';
 export class MenuComponent implements OnInit {
   
   @Output() selectPageDetails = new EventEmitter()
-  constructor(private router:Router, private dataService:DataService) {
-    console.log(this.dataService.getData());
+  constructor(private router:Router) {
+    
   }
 
   ngOnInit() {
@@ -31,6 +31,7 @@ export class MenuComponent implements OnInit {
     // login service logout service
     if(true){
       this.loginLogOutText = true? 'logout' :'login'
+      this.router.navigate(['/login'])
     }else{
       this.router.navigate(['/login'])
     }

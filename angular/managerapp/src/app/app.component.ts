@@ -32,7 +32,7 @@ export class AppComponent {
       this.showPage.loadOrdersPageFlag = false;
     }
   }
-  // recievedData;
+  recievedData;
   // constructor(public dataService:DataService){
 
   // }
