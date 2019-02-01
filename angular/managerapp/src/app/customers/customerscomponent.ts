@@ -9,9 +9,13 @@ export class CustomersComponent implements OnInit{
     constructor(public dataService:DataService){
 
     }
+    sendData;
     ngOnInit(){
+        this.sendData = [{firstName:'ravi',lastName:'kumar'}]
         this.dataService.getCustomersPage(1,10).subscribe((res) =>{
-           console.log(res) ;
+        //    console.log(res) ;
+        //    this.sendData = res;
         })
     }
+
 }
