@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 
 const route: Routes = [
     {path: '' , redirectTo: 'customers', pathMatch: 'full'},
+    {path: 'customers/:id', loadChildren: './customer/customer.module#CustomerModule' },
     {path: 'customers' , loadChildren: './customers/customers.module#CustomersModule'},
     {path: 'order', loadChildren: './orders/orders.module#OrdersModule' },
-    {path: 'customer', loadChildren: './customer/customer.module#CustomerModule' }
+
 ];
 
 @NgModule({

@@ -10,7 +10,7 @@ export class CustomerscardviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('this cust card view ',this.custData);
+    console.log('this cust card view ', this.custData);
   }
 
 }

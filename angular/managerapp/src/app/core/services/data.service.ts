@@ -9,10 +9,14 @@ export class DataService {
   baseUrl = '/api/customers'
   constructor(private http:HttpClient) { }
 
-  getData(){
-    return this.data= [1,2,3,4,5]
+  getData() {
+    return this.data = [1, 2, 3, 4, 5 ];
+
   }
-  getCustomersPage(page:number,pageSize:number){
+  getCustomersPage(page: number, pageSize: number){
     return this.http.get(`${this.baseUrl}/page/${page}/${pageSize}`);
+  }
+  getCustomer(id: number) {
+    return this.http.get(this.baseUrl + '/' + id);
   }
 }

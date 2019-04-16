@@ -9,7 +9,7 @@ import { DataService } from './services/data.service';
   imports: [
     CommonModule, RouterModule
   ],
-  providers:[],
+  providers:[DataService],
   declarations: [MenuComponent, CustomersnavComponent],
   exports: [MenuComponent,CustomersnavComponent]
 })

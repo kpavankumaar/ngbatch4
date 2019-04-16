@@ -7,12 +7,11 @@ import { DataService } from '../core/services/data.service';
 
 @NgModule({
   imports: [CommonModule, CustomersRoutingModule, CoreModule],
-  providers:[DataService],
+  providers: [DataService],
   declarations: [CustomersRoutingModule.components],
-  
 })
 export class CustomersModule {
-  constructor(){
+  constructor() {
     console.log('Customers Module loaded ')
   }
  }
